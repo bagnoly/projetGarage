@@ -10,7 +10,7 @@ public class VitreElectrique implements Option, Serializable{
 	
 	public String toString() {
 		
-		return "Vitre Electrique (" + this.getPrix() + "€)";
+		return "Vitre Electrique (" + this.getPrix() + "â‚¬)";
 	}
 
 }

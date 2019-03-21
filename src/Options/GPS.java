@@ -10,7 +10,7 @@ public class GPS implements Option, Serializable {
 	
 	public String toString() {
 		
-		return "GPS (" + this.getPrix() + "€)";
+		return "GPS (" + this.getPrix() + "â‚¬)";
 	}
 
 }

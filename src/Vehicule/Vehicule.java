@@ -53,7 +53,7 @@ public class Vehicule implements Serializable{
 		this.getPrix();
 		
 		return "+ voiture " + this.nomMarque + " : " + this.getClass().getSimpleName() + " " + this.moteur.toString() + " " + 
-		this.moteur.getCylindre() + " " + "(" + this.moteur.getPrix() + "€)" + this.option + " d'une valeur total de " + (this.prix + this.moteur.getPrix() + "€.");
+		this.moteur.getCylindre() + " " + "(" + this.moteur.getPrix() + "â‚¬)" + this.option + " d'une valeur total de " + (this.prix + this.moteur.getPrix() + "â‚¬.");
 	}
 
 }

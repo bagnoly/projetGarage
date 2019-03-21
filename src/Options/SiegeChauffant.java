@@ -10,7 +10,7 @@ public class SiegeChauffant implements Option, Serializable {
 	
 	public String toString() {
 		
-		return "Siège chauffant (" + getPrix() + "€)";
+		return "SiÃ¨ge chauffant (" + getPrix() + "â‚¬)";
 	}
 
 }
