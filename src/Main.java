@@ -1,0 +1,114 @@
+import Vehicule.*;
+import Moteur.*;
+import Options.*;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		ObjectInputStream ois;
+		ObjectOutputStream oos;
+		boolean aVoiture = true;
+				
+		try {
+			ois = new ObjectInputStream(
+					new BufferedInputStream(
+						new FileInputStream(
+							new File("garage.txt"))));
+			
+			Garage.voitures = (List<Vehicule>) ois.readObject();
+			ois.close();
+			
+		}catch (FileNotFoundException e) {
+			System.out.println("Aucune voitures sauvegarder !");
+			aVoiture = false;
+		}catch (IOException e) {
+			e.printStackTrace();
+		}catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		Garage.voitures = new ArrayList<Vehicule>();
+		
+		Garage garage = new Garage();
+		
+		//********************************
+		
+	   	 System.out.println(garage);
+	   	 
+	   	 Vehicule lag1 = new Lagouna();
+	   	 lag1.setMoteur(new MoteurEssence("150 Chevaux", 10256d));
+	   	 lag1.addOption(new GPS());
+	   	 lag1.addOption(new SiegeChauffant());
+	   	 lag1.addOption(new VitreElectrique());
+	   	 lag1.getMarque();
+	   	 garage.addVoiture(lag1);
+	   		 
+	   	 Vehicule A300B_2 = new A300B();
+	   	 A300B_2.setMoteur(new MoteurElectrique("1500 W", 1234d));
+	   	 A300B_2.addOption(new Climatisation());
+	   	 A300B_2.addOption(new BarreDeToit());
+	   	 A300B_2.addOption(new SiegeChauffant());
+	   	 A300B_2.getMarque();
+	   	 garage.addVoiture(A300B_2);
+	   	 
+	   	 Vehicule d4_1 = new D4();
+	   	 d4_1.setMoteur(new MoteurDiesel("200 Hdi", 25684.80d));
+	   	 d4_1.addOption(new BarreDeToit());
+	   	 d4_1.addOption(new Climatisation());
+	   	 d4_1.addOption(new GPS());
+	   	 d4_1.getMarque();
+	   	 garage.addVoiture(d4_1);   	 
+	   	 
+	   	 Vehicule lag2 = new Lagouna();
+	   	 lag2.setMoteur(new MoteurDiesel("500 Hdi", 456987d));
+	   	 lag2.getMarque();
+	   	 garage.addVoiture(lag2);
+	   	 
+	   	 Vehicule A300B_1 = new A300B();
+	   	 A300B_1.setMoteur(new MoteurHybride("ESSENCE/Electrique", 12345.95d));
+	   	 A300B_1.addOption(new VitreElectrique());
+	   	 A300B_1.addOption(new BarreDeToit());
+	   	 A300B_1.getMarque();
+	   	 garage.addVoiture(A300B_1);
+	   	 
+	   	 Vehicule d4_2 = new D4();
+	   	 d4_2.setMoteur(new MoteurElectrique("100 KW", 1224d));
+	   	 d4_2.addOption(new SiegeChauffant());
+	   	 d4_2.addOption(new BarreDeToit());
+	   	 d4_2.addOption(new Climatisation());
+	   	 d4_2.addOption(new GPS());
+	   	 d4_2.addOption(new VitreElectrique());
+	   	 d4_2.getMarque();
+	   	 garage.addVoiture(d4_2);
+	   	 
+	   	 if(aVoiture == true) {
+	   		 for(Vehicule voit : Garage.voitures) {
+			 System.out.println(voit);
+	   	 }
+	   	 
+		}
+	   	 
+	   	 //******************************
+			
+		try {
+			
+			oos = new ObjectOutputStream(
+					new BufferedOutputStream(
+						new FileOutputStream(
+							new File("garage.txt"))));
+			
+			oos.writeObject(Garage.voitures);
+			oos.close();
+			
+		}catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+}
