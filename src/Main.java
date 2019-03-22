@@ -31,14 +31,15 @@ public class Main {
 			e.printStackTrace();
 		}
 		
-		Garage.voitures = new ArrayList<Vehicule>();
+		//Garage.voitures = new ArrayList<Vehicule>();
+		// si on laisse la ligne du dessus alors on ne lit que les nouvelles voitures et on efface les anciennes
 		
 		Garage garage = new Garage();
-		
-		//********************************
-		
-	   	 System.out.println(garage);
-	   	 
+
+	   	 System.out.println(garage); // Affiche le tostring de la classe garage
+		// le garage openclassroom avec les étoiles
+
+
 	   	 Vehicule lag1 = new Lagouna();
 	   	 lag1.setMoteur(new MoteurEssence("150 Chevaux", 10256d));
 	   	 lag1.addOption(new GPS());
@@ -46,7 +47,7 @@ public class Main {
 	   	 lag1.addOption(new VitreElectrique());
 	   	 lag1.getMarque();
 	   	 garage.addVoiture(lag1);
-	   		 
+/*
 	   	 Vehicule A300B_2 = new A300B();
 	   	 A300B_2.setMoteur(new MoteurElectrique("1500 W", 1234d));
 	   	 A300B_2.addOption(new Climatisation());
@@ -54,7 +55,7 @@ public class Main {
 	   	 A300B_2.addOption(new SiegeChauffant());
 	   	 A300B_2.getMarque();
 	   	 garage.addVoiture(A300B_2);
-	   	 
+
 	   	 Vehicule d4_1 = new D4();
 	   	 d4_1.setMoteur(new MoteurDiesel("200 Hdi", 25684.80d));
 	   	 d4_1.addOption(new BarreDeToit());
@@ -84,14 +85,14 @@ public class Main {
 	   	 d4_2.addOption(new VitreElectrique());
 	   	 d4_2.getMarque();
 	   	 garage.addVoiture(d4_2);
-	   	 
+*/
 	   	 if(aVoiture == true) {
 	   		 for(Vehicule voit : Garage.voitures) {
 			 System.out.println(voit);
 	   	 }
 	   	 
 		}
-	   	 
+
 	   	 //******************************
 			
 		try {
