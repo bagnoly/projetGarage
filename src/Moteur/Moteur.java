@@ -11,7 +11,7 @@ public abstract class Moteur implements Serializable{
 	private String cylindre;
 	private double prix;
 
-	public Moteur(String cylindre, double prix){
+	public Moteur(String cylindre){
 		this.cylindre = cylindre;
 		this.prix = getPrix();
 	}
@@ -27,7 +27,7 @@ public abstract class Moteur implements Serializable{
 			return 3000;
 		}
 		else{
-			return 1400;
+			return 1400; // si moteur electrique
 		}
 		
 	};
